@@ -8,6 +8,21 @@ ingredients = [
 
 def sandwich_request(ingredients, order) 
   # your code here!
+  correct = true 
+  puts ingredients
+  order.each do |part|
+    if correct == true
+      ingredients.each do |ingredient| 
+        if ingredient.include?(part)
+          correct = true
+          break
+        else
+          correct = false
+        end
+      end
+    end
+  end
+  return correct
 end
 
 # example city_info hash
@@ -36,4 +51,9 @@ cities = {
 
 def city_populations(cities)
   # your code here!
+  total_population = 0
+  cities.each_key do |city|
+    total_population += cities[city][:population]
+  end
+  total_population
 end
